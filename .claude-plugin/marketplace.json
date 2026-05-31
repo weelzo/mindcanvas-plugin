@@ -1,0 +1,12 @@
+{
+  "name": "mindcanvas",
+  "owner": { "name": "MindCanvas", "url": "https://mindcanvas.app" },
+  "plugins": [
+    {
+      "name": "mindcanvas",
+      "source": "./",
+      "description": "Drive your MindCanvas from the terminal — read, create, connect and reorganize canvas nodes as a live peer collaborator.",
+      "version": "0.1.0"
+    }
+  ]
+}

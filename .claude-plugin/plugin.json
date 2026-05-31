@@ -1,0 +1,29 @@
+{
+  "name": "mindcanvas",
+  "displayName": "MindCanvas",
+  "version": "0.1.0",
+  "description": "Drive your MindCanvas from the terminal — Claude reads, creates, connects and reorganizes nodes on your canvas, live, as a visible peer collaborator.",
+  "author": { "name": "MindCanvas", "url": "https://mindcanvas.app" },
+  "homepage": "https://mindcanvas.app",
+  "repository": "https://github.com/weelzo/mindcanvas-plugin",
+  "license": "MIT",
+  "keywords": ["mindcanvas", "canvas", "mcp", "thinking", "notes", "knowledge"],
+  "userConfig": {
+    "session_token": {
+      "type": "string",
+      "title": "MindCanvas session token",
+      "description": "Your MindCanvas access token. Sign in at https://mindcanvas.app, then copy it from the browser console (see README → Configure). Expires ~1 hour — update this when it does.",
+      "sensitive": true
+    }
+  },
+  "mcpServers": {
+    "mindcanvas": {
+      "type": "sse",
+      "url": "https://mcp.mindcanvas.app/sse",
+      "headers": {
+        "Authorization": "Bearer ${user_config.session_token}"
+      },
+      "alwaysLoad": true
+    }
+  }
+}
