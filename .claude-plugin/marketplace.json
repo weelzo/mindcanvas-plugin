@@ -6,7 +6,7 @@
       "name": "mindcanvas",
       "source": "./",
       "description": "Drive your MindCanvas from the terminal — read, create, connect and reorganize canvas nodes as a live peer collaborator.",
-      "version": "0.1.0"
+      "version": "0.2.0"
     }
   ]
 }
