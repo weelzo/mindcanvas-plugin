@@ -24,19 +24,12 @@ In Claude Code, run:
 /plugin install mindcanvas@mindcanvas
 ```
 
-On first enable, paste your **MindCanvas session token** when prompted. Get it by
-signing in at [mindcanvas.app](https://mindcanvas.app), opening the browser
-console (⌥⌘I / F12), and running:
+On first use, Claude Code opens your browser to sign in to MindCanvas and asks you
+to **Allow Claude Code**. That's it — the connection authorizes itself and refreshes
+automatically. No tokens to copy, nothing to re-paste.
 
-```js
-JSON.parse(Object.entries(localStorage).find(([k]) => k.includes('auth-token'))[1]).access_token
-```
-
-Copy the `eyJ…` string. Tokens last ~1 hour — when you hit auth errors, grab a
-fresh one via `/plugin` → MindCanvas → configure.
-
-The plugin acts as **you**, over HTTPS, scoped to your own canvases. Your token
-stays in your OS keychain; no content leaves your MindCanvas.
+The plugin acts as **you**, over HTTPS, scoped to your own canvases; no content
+leaves your MindCanvas.
 
 ## Try it
 
