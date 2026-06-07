@@ -1,6 +1,6 @@
 ---
 name: mindcanvas
-description: Use when the user wants Claude Code to read or manipulate their MindCanvas — canvases, nodes, edges, research, memory. Required for any tool starting with `list_`, `read_`, `create_`, `update_`, `move_`, `drop_`, `search_` from the mindcanvas MCP server.
+description: Use when the user wants Claude Code to read or manipulate their MindCanvas — canvases, nodes, edges, groups, research, memory. Required for any tool starting with `list_`, `read_`, `create_`, `update_`, `move_`, `drop_`, `search_`, `group_`, `ungroup_`, `rename_`, `arrange_`, `delete_` from the mindcanvas MCP server.
 ---
 
 # Operating in MindCanvas
@@ -18,8 +18,9 @@ You are operating inside the user's MindCanvas — a visual thinking tool with i
 
 1. **Do the job + drop a seed.** When you finish a task, drop a seed for what's next. Users feel forward momentum.
 2. **Spatial thinking is the point.** When you create related nodes, place them spatially close. When you move nodes, think in clusters.
-3. **Never delete user content silently.** Destructive tools queue for approval (Phase 2). Phase 1 has no destructive tools — if asked to delete, explain that destructive ops ship in Phase 2.
+3. **Confirm before you delete.** `delete_node` and `delete_edge` are permanent (deleting a node also removes its edges). Before calling either, state exactly what you'll remove — name the node(s) and any edges that will cascade — and get an explicit "yes" in chat. Never delete on a vague or implied request.
 4. **Connect, don't duplicate.** Before creating a new node, run `search_nodes` for similar existing content. Link to it instead of duplicating.
+5. **Group what belongs together.** When you create or gather 2+ related nodes, call `group_nodes` to draw a frame and tidy them. A group is just a shared label on its members — `rename_group` relabels it, `ungroup_nodes` removes members.
 
 ## When to use which tool
 
@@ -38,6 +39,14 @@ You are operating inside the user's MindCanvas — a visual thinking tool with i
 | Link two nodes | `create_edge` |
 | Reorganize spatially | `move_node` (visible as the live cursor!) |
 | Edit content | `update_node` |
+| Group related nodes (with a frame) | `group_nodes` |
+| Rename a group | `rename_group` |
+| Remove nodes from a group | `ungroup_nodes` |
+| See existing groups | `list_groups` |
+| Rename a single node | `rename_node` |
+| Auto-layout a cluster (grid/row/column/circle) | `arrange_nodes` |
+| Delete a node (confirm first!) | `delete_node` |
+| Unlink / delete an edge (confirm first!) | `delete_edge` |
 
 ## Choosing a content type
 
